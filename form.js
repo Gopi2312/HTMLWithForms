@@ -35,10 +35,6 @@ function info() {
     }
     else {
         arr.push(person);
-        const inputs = document.querySelectorAll('input');
-        for (let i = 0; i < inputs.length-2; i++) {
-            inputs[i].style.backgroundColor = '#B9E6FF';
-        }
         cancelinfo();
     }
 }
@@ -74,4 +70,8 @@ let cancelinfo = () => {
     document.getElementById("person-city").value = "";
     document.getElementById("person-DoB").value = "";
     document.getElementById("person-mobile").value = "";
+    const inputs = document.querySelectorAll('input');
+    for (let i = 0; i < inputs.length-2; i++) {
+        inputs[i].style.backgroundColor = '#B9E6FF';
+    }
 }

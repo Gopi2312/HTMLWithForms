@@ -56,7 +56,7 @@ const checkDoB = (dob)=>{
 }
 
 const checkEmail = (email)=>{
-    let check = /^[a-z0-9_.]+@[a-z0-9._]+.[a-z0-9._]+$/;
+    let check = /^[a-z0-9_.]+@[a-z0-9._]+$/;
     return check.test(email);
 }
 const addinfo = () => {

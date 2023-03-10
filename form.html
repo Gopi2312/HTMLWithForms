@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form class="container">
+    <div class="container">
         <div class="input-box">
             <div class="header">
                 <h3>Personal Information Form</h3>
@@ -17,8 +17,8 @@
             <input type="text" placeholder="Name" id="person-name" />
             <label>Address:</label>
             <input type="text" placeholder="Address" id="person-address" />
-            <label>City:</label>
-            <input type="text" placeholder="City" id="person-city" />
+            <label>Email:</label>
+            <input type="email" placeholder="Email" id="person-email" />
             <label>DoB:</label>
             <input type="date" placeholder="Date Of Birth" id="person-DoB" />
             <label>Mobile:</label>
@@ -28,15 +28,15 @@
             <input type="button" class="button" id="add-button" value="Add" onclick="addinfo()" />
             <input type="button" class="button" id="cancel-button" value="Cancel" onclick="cancelinfo()" />
         </div>
-    </form>
+    </div>
     <div class="display-table">
         <table>
-            <caption>List out Personal Informations</caption>
+            <caption></caption>
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Address</th>
-                    <th>City</th>
+                    <th>Email</th>
                     <th>DoB</th>
                     <th>Mobile</th>
                 </tr>

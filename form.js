@@ -3,11 +3,13 @@ function info() {
     let person = {
         name: document.getElementById("person-name").value,
         address: document.getElementById("person-address").value,
-        city: document.getElementById("person-city").value,
+        email: document.getElementById("person-email").value,
         dob: document.getElementById("person-DoB").value,
         mobile: document.getElementById("person-mobile").value,
     }
-    let check = checkNumber(person.mobile);
+    let mobile = checkNumber(person.mobile);
+    let dob = checkDoB(person.dob);
+    let email = checkEmail(person.email);
     if(person.name === "" || checkChar(person.name) === false){
         let name = document.getElementById("person-name");
         name.style.backgroundColor = "#FFCCCB";
@@ -18,17 +20,17 @@ function info() {
         name.style.backgroundColor = "#FFCCCB";
         name.placeholder = "Address Required";
     }
-    else if(person.city === "" || checkChar(person.name) === false){
-        let name = document.getElementById("person-city");
+    else if(person.email === "" || email === false){
+        let name = document.getElementById("person-email");
         name.style.backgroundColor = "#FFCCCB";
-        name.placeholder = "Characters Only Required";
+        name.placeholder = "@gamil format";
     }
-    else if(person.dob === ""){
+    else if(person.dob === "" || dob === false){
         let name = document.getElementById("person-DoB");
         name.style.backgroundColor = "#FFCCCB";
         name.placeholder = "Date of Birth";
     }
-    else if(person.mobile === "" || check === false){
+    else if(person.mobile === "" || mobile === false){
         let name = document.getElementById("person-mobile");
         name.style.backgroundColor = "#FFCCCB";
         name.placeholder = "10-Digit Number start with 6-9";
@@ -47,6 +49,16 @@ const checkChar = (char) => {
     let check = /^[a-zA-Z]+$/;
     return check.test(char);
 }
+const checkDoB = (dob)=>{
+    let currentDate = new Date();
+    let enteredDate = new Date(dob);
+    return enteredDate < currentDate; 
+}
+
+const checkEmail = (email)=>{
+    let check = /^[a-z0-9_.]+@[a-z0-9._]+.[a-z0-9._]+$/;
+    return check.test(email);
+}
 const addinfo = () => {
     info();
     renderTable();
@@ -57,7 +69,7 @@ let renderTable = () => {
     for (const element of arr) {
         tableRow += "<tr><td>" + element.name + "</td>";
         tableRow += "<td>" + element.address + "</td>";
-        tableRow += "<td>" + element.city + "</td>";
+        tableRow += "<td>" + element.email + "</td>";
         tableRow += "<td>" + element.dob + "</td>";
         tableRow += "<td>" + element.mobile + "</td>";
     }
@@ -66,12 +78,16 @@ let renderTable = () => {
 
 let cancelinfo = () => {
     document.getElementById("person-name").value = "";
+    document.getElementById("person-name").placeholder = "Name";
     document.getElementById("person-address").value = "";
-    document.getElementById("person-city").value = "";
+    document.getElementById("person-address").placeholder = "Address";
+    document.getElementById("person-email").value = "";
+    document.getElementById("person-email").placeholder = "email";
     document.getElementById("person-DoB").value = "";
     document.getElementById("person-mobile").value = "";
+    document.getElementById("person-mobile").placeholder = "Mobile-Number";
     const inputs = document.querySelectorAll('input');
     for (let i = 0; i < inputs.length-2; i++) {
-        inputs[i].style.backgroundColor = 'white';
+            inputs[i].style.backgroundColor = 'white';
     }
 }
